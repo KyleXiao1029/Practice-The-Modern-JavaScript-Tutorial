@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript 简介 - 现代 JavaScript 教程</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+    }
+    .navbar {
+      background-color: #2c3e50;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .navbar h1 {
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .navbar .breadcrumb {
+      color: #bdc3c7;
+      font-size: 0.9rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .content {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .intro-box {
+      background-color: #e3f2fd;
+      border-left: 4px solid #2196f3;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .feature-card {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      border: 1px solid #e1e4e8;
+    }
+    .feature-card h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+    .highlight {
+      color: #2196f3;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <h1>现代 JavaScript 教程</h1>
+    <div class="breadcrumb">第1部分：JavaScript 编程语言 > 1. 简介 > 1.1 JavaScript 简介</div>
+  </nav>
+
+  <div class="container">
+    <div class="content">
+      <div class="intro-box">
+        <p>JavaScript 最初被创建的目的是"使网页更生动"。这门编程语言创造的程序被称为脚本，它们可以直接写在网页的 HTML 中，在页面加载时自动执行。</p>
+      </div>
+
+      <div class="features">
+        <div class="feature-card">
+          <h3>浏览器中的 JavaScript</h3>
+          <p>JavaScript 最初是专门为浏览器创建的语言，但现在已经可以在很多其他环境中使用。</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>独特之处</h3>
+          <p>JavaScript 是世界上<span class="highlight">唯一</span>一门可以完全集成 HTML/CSS 的编程语言。</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>现代发展</h3>
+          <p>如今的 JavaScript 不仅可以在浏览器中执行，还可以在服务器或任何配备了 JavaScript 引擎的设备上运行。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

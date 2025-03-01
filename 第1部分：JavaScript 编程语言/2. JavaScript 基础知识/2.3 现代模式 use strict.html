@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>现代模式 "use strict"</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    header {
+      border-bottom: 2px solid #4CAF50;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+    }
+    h1 {
+      color: #2c3e50;
+      font-size: 2.2em;
+    }
+    h2 {
+      color: #3498db;
+      margin-top: 30px;
+      border-left: 4px solid #3498db;
+      padding-left: 10px;
+    }
+    h3 {
+      color: #e67e22;
+      margin-top: 20px;
+    }
+    .container {
+      background-color: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .note {
+      background-color: #e7f5fe;
+      border-left: 4px solid #3498db;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .warning {
+      background-color: #fff5e6;
+      border-left: 4px solid #e67e22;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    code {
+      font-family: Consolas, Monaco, 'Andale Mono', monospace;
+      background-color: #f5f5f5;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    pre {
+      background-color: #f5f5f5;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      line-height: 1.4;
+    }
+    .code-block {
+      position: relative;
+      margin: 20px 0;
+    }
+    .code-block .code-title {
+      background-color: #e0e0e0;
+      padding: 5px 15px;
+      border-radius: 5px 5px 0 0;
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+    .code-block pre {
+      margin-top: 0;
+      border-radius: 0 0 5px 5px;
+    }
+    .example {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+    .example-header {
+      background-color: #f0f0f0;
+      padding: 10px 15px;
+      font-weight: bold;
+      border-bottom: 1px solid #ddd;
+    }
+    .example-content {
+      padding: 15px;
+    }
+    .example-result {
+      background-color: #f9f9f9;
+      padding: 10px 15px;
+      border-top: 1px solid #ddd;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #2980b9;
+    }
+    #output {
+      min-height: 30px;
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>现代模式 "use strict"</h1>
+  </header>
+
+  <div class="container">
+    <p>
+      JavaScript 语言在不断发展。新的特性被定期添加，旧的功能被修改以符合现代标准。为了保证旧的代码能够正常工作，大多数这样的修改默认是不生效的。你需要使用一个特殊的指令 —— <code>"use strict"</code> 来明确地激活这些特性。
+    </p>
+
+    <h2>"use strict" 指令</h2>
+    <p>
+      这个指令看上去像一个字符串 <code>"use strict"</code> 或者 <code>'use strict'</code>。当它处于脚本文件的顶部时，则整个脚本文件都将以"现代"模式进行工作。
+    </p>
+
+    <div class="code-block">
+      <div class="code-title">示例：在脚本顶部使用严格模式</div>
+      <pre><code>"use strict";
+
+// 代码以现代模式工作
+let x = 10;
+console.log(x);</code></pre>
+    </div>
+
+    <div class="note">
+      <strong>请确保 "use strict" 在最顶部</strong>
+      <p>请确保 <code>"use strict"</code> 出现在脚本的最顶部，否则严格模式可能无法被启用。</p>
+    </div>
+
+    <p>你也可以在函数内部使用 <code>"use strict"</code>，这样严格模式仅在该函数内部有效：</p>
+
+    <div class="code-block">
+      <div class="code-title">在函数中使用严格模式</div>
+      <pre><code>function strictFunction() {
+  "use strict";
+  // 这个函数中的代码以现代模式工作
+}
+
+// 这里的代码不在严格模式下</code></pre>
+    </div>
+
+    <div class="warning">
+      <strong>没有办法取消 use strict</strong>
+      <p>一旦进入了严格模式，就没有回头路了。没有指令能够使程序返回默认模式。</p>
+    </div>
+
+    <h2>浏览器控制台</h2>
+    <p>
+      当你使用开发者控制台运行代码时，请注意默认情况下它不会启用 <code>use strict</code>。
+    </p>
+    <p>
+      有时，当 <code>use strict</code> 会产生不同的行为时，你会得到错误的结果。所以，如何在控制台中实际使用 <code>use strict</code> 呢？
+    </p>
+    <p>
+      首先，你可以尝试在代码前面加上 <code>"use strict";</code>，像这样：
+    </p>
+
+    <div class="code-block">
+      <pre><code>'use strict'; // 在顶部添加这个
+// 下面是你的代码
+...</code></pre>
+    </div>
+
+    <p>
+      或者，你可以使用浏览器的功能，比如 Firefox 和 Chrome 中的 <code>Function</code> 构造器将代码包装到启用了严格模式的函数中：
+    </p>
+
+    <div class="code-block">
+      <pre><code>(function() {
+  'use strict';
+  // 你的代码...
+})();</code></pre>
+    </div>
+
+    <h2>应该使用 "use strict" 吗？</h2>
+    <p>
+      现代 JavaScript 支持"类"和"模块" —— 高级语言结构，它们会自动启用 <code>use strict</code>。因此，如果我们使用它们，则无需添加 <code>"use strict"</code> 指令。
+    </p>
+
+    <div class="note">
+      <strong>现代 JavaScript 的自动严格模式</strong>
+      <p>当我们使用 ES6 模块或类时，严格模式会自动启用：</p>
+      <pre><code>// 在模块文件中，不需要添加 "use strict"
+export function sum(a, b) {
+  return a + b; // 已经在严格模式下
+}
+
+// 在类中，不需要添加 "use strict"
+class User {
+  constructor(name) {
+    this.name = name; // 已经在严格模式下
+  }
+}</code></pre>
+    </div>
+
+    <p>
+      所以，目前我们欢迎将 <code>"use strict"</code> 用于脚本，尤其是旧的脚本。在后面的教程中，当我们使用类和模块时，我们就不再需要它了。
+    </p>
+
+    <h2>严格模式的变化</h2>
+
+    <p>以下是严格模式带来的一些主要变化：</p>
+
+    <h3>1. 将过失转为错误</h3>
+    <p>
+      在严格模式下，过去默默被忽略的错误现在会抛出异常。这有助于早期发现和修复问题。
+    </p>
+
+    <div class="example">
+      <div class="example-header">示例：未声明变量</div>
+      <div class="example-content">
+        <div class="code-block">
+          <pre><code>// 非严格模式
+x = 10; // 创建一个全局变量，不会报错
+
+// 严格模式
+"use strict";
+x = 10; // 错误：x 未定义</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <h3>2. 禁用 with 语句</h3>
+    <p>
+      <code>with</code> 语句在严格模式下被禁用，因为它会导致性能问题和代码不清晰。
+    </p>
+
+    <h3>3. 静态绑定</h3>
+    <p>
+      严格模式下，<code>this</code> 的值不会被强制转换为对象，并且在函数被简单调用时（不作为方法），<code>this</code> 的值为 <code>undefined</code>。
+    </p>
+
+    <div class="example">
+      <div class="example-header">示例：函数中的 this</div>
+      <div class="example-content">
+        <div class="code-block">
+          <pre><code>// 非严格模式
+function showThis() {
+  console.log(this); // 在浏览器中是 window 对象
+}
+
+// 严格模式
+"use strict";
+function showThis() {
+  console.log(this); // undefined
+}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <h3>4. 禁止删除不可删除的属性</h3>
+    <p>
+      在严格模式下，尝试删除不可配置的属性会抛出错误。
+    </p>
+
+    <div class="example">
+      <div class="example-header">示例：删除不可删除的属性</div>
+      <div class="example-content">
+        <div class="code-block">
+          <pre><code>"use strict";
+delete Object.prototype; // 错误：无法删除</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <h3>5. 参数名唯一</h3>
+    <p>
+      在严格模式下，函数参数名必须唯一，不允许重复。
+    </p>
+
+    <div class="example">
+      <div class="example-header">示例：重复的参数名</div>
+      <div class="example-content">
+        <div class="code-block">
+          <pre><code>// 非严格模式
+function sum(a, a) { // 可以，但第二个 a 会覆盖第一个
+  return a + a;
+}
+
+// 严格模式
+"use strict";
+function sum(a, a) { // 语法错误：参数名重复
+  return a + a;
+}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <h2>交互式示例</h2>
+    <p>尝试运行以下代码，看看严格模式和非严格模式的区别：</p>
+
+    <div class="code-block">
+      <div class="code-title">严格模式示例</div>
+      <pre><code id="strictCode">// 尝试在严格模式下运行
+"use strict";
+
+// 1. 未声明变量
+try {
+  x = 10;
+  document.getElementById("output").innerHTML += "未声明变量赋值成功（不应该发生）<br>";
+} catch(e) {
+  document.getElementById("output").innerHTML += "错误：" + e.message + "<br>";
+}
+
+// 2. 测试 this 的值
+try {
+  function testThis() {
+    document.getElementById("output").innerHTML += "函数中的this值：" + (this === undefined ? "undefined" : typeof this) + "<br>";
+  }
+  testThis();
+} catch(e) {
+  document.getElementById("output").innerHTML += "错误：" + e.message + "<br>";
+}
+
+// 3. 测试八进制字面量
+try {
+  let n = 010; // 在非严格模式下是8进制数，值为8
+  document.getElementById("output").innerHTML += "八进制字面量010的值：" + n + "<br>";
+} catch(e) {
+  document.getElementById("output").innerHTML += "错误：" + e.message + "<br>";
+}
+</code></pre>
+    </div>
+
+    <div id="output" class="output">运行结果将显示在这里...</div>
+    <button class="btn" onclick="runStrictExample()">运行示例</button>
+
+    <h2>严格模式的更多限制</h2>
+    <p>除了上面提到的变化外，严格模式还有以下限制：</p>
+
+    <h3>6. 八进制语法</h3>
+    <p>
+      在严格模式下，八进制语法（如 0123）是不允许的。在ES6中，可以使用新的八进制表示法：0o123。
+    </p>
+
+    <h3>7. eval 的限制</h3>
+    <p>
+      在严格模式下，eval 不会在包含它的作用域中引入新变量。
+    </p>
+
+    <div class="example">
+      <div class="example-header">示例：eval 的作用域</div>
+      <div class="example-content">
+        <div class="code-block">
+          <pre><code>// 非严格模式
+eval("var x = 10");
+console.log(x); // 10，x 在外部作用域可见
+
+// 严格模式
+"use strict";
+eval("var y = 20");
+console.log(y); // 错误：y 未定义</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <h3>8. arguments 对象的限制</h3>
+    <p>
+      在严格模式下，arguments 对象不会跟踪参数的变化。
+    </p>
+
+    <div class="example">
+      <div class="example-header">示例：arguments 对象</div>
+      <div class="example-content">
+        <div class="code-block">
+          <pre><code>// 非严格模式
+function f(a) {
+  a = 2;
+  return [a, arguments[0]];
+}
+console.log(f(1)); // [2, 2]，arguments[0] 也变成了 2
+
+// 严格模式
+"use strict";
+function f(a) {
+  a = 2;
+  return [a, arguments[0]];
+}
+console.log(f(1)); // [2, 1]，arguments[0] 保持为 1</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <h2>严格模式的好处</h2>
+    <p>使用严格模式有以下好处：</p>
+    <ul>
+      <li>防止意外创建全局变量</li>
+      <li>使赋值给不可写属性、不可扩展对象等操作抛出异常</li>
+      <li>要求函数参数名唯一</li>
+      <li>禁止使用未来可能被用作关键字的标识符</li>
+      <li>禁止使用可能导致混淆或性能问题的语法</li>
+      <li>简化了 eval 和 arguments 的行为</li>
+      <li>更安全的 JavaScript 代码</li>
+    </ul>
+
+    <h2>总结</h2>
+    <p>
+      严格模式是 ECMAScript 5 引入的一种将 JavaScript 代码运行在更严格环境中的方式。它消除了 JavaScript 语言中一些不合理、不严谨的地方，减少了一些怪异行为，并且提高了编译器效率，增加了运行速度。
+    </p>
+    <p>
+      在现代开发中，推荐始终使用严格模式，或者使用自动启用严格模式的语言特性（如类和模块）。这样可以写出更加健壮、可维护的代码。
+    </p>
+  </div>
+
+  <script>
+    function runStrictExample() {
+      document.getElementById("output").innerHTML = "";
+      
+      // 执行严格模式代码
+      (function() {
+        "use strict";
+        
+        // 1. 未声明变量
+        try {
+          x = 10;
+          document.getElementById("output").innerHTML += "未声明变量赋值成功（不应该发生）<br>";
+        } catch(e) {
+          document.getElementById("output").innerHTML += "错误：" + e.message + "<br>";
+        }
+        
+        // 2. 测试 this 的值
+        try {
+          function testThis() {
+            document.getElementById("output").innerHTML += "函数中的this值：" + (this === undefined ? "undefined" : typeof this) + "<br>";
+          }
+          testThis();
+        } catch(e) {
+          document.getElementById("output").innerHTML += "错误：" + e.message + "<br>";
+        }
+        
+        // 3. 测试八进制字面量
+        try {
+          let n = 010; // 在严格模式下会报错
+          document.getElementById("output").innerHTML += "八进制字面量010的值：" + n + "<br>";
+        } catch(e) {
+          document.getElementById("output").innerHTML += "错误：" + e.message + "<br>";
+        }
+      })();
+    }
+  </script>
+</body>
+</html>

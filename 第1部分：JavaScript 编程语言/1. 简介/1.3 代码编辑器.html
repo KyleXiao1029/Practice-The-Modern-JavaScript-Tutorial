@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>代码编辑器 - 现代 JavaScript 教程</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+    h1 {
+      color: #2c3e50;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .section-title {
+      color: #2c3e50;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #3498db;
+    }
+    .editors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .editor-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+    .editor-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .editor-header {
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-bottom: 1px solid #eee;
+    }
+    .editor-name {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 5px;
+    }
+    .editor-content {
+      padding: 15px;
+    }
+    .editor-description {
+      margin-bottom: 15px;
+      color: #555;
+    }
+    .editor-link {
+      display: inline-block;
+      color: #3498db;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .editor-link:hover {
+      color: #2980b9;
+      text-decoration: underline;
+    }
+    .ide-section .editor-header {
+      background-color: #e3f2fd;
+    }
+    .lightweight-section .editor-header {
+      background-color: #e8f5e9;
+    }
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>代码编辑器</h1>
+      <p class="subtitle">选择合适的工具，提升您的编程效率</p>
+    </header>
+
+    <section class="section ide-section">
+      <h2 class="section-title">集成开发环境 (IDE)</h2>
+      <p>集成开发环境提供了完整的开发工具集，包括代码编辑、调试、版本控制等功能，适合大型项目开发。</p>
+      <div class="editors-grid">
+        <div class="editor-card">
+          <div class="editor-header">
+            <h3 class="editor-name">Visual Studio Code</h3>
+          </div>
+          <div class="editor-content">
+            <p class="editor-description">微软开发的免费、开源代码编辑器，支持多种编程语言和丰富的扩展插件，是目前最流行的前端开发工具之一。</p>
+            <a href="https://code.visualstudio.com/" class="editor-link" target="_blank">官方网站</a>
+          </div>
+        </div>
+
+        <div class="editor-card">
+          <div class="editor-header">
+            <h3 class="editor-name">WebStorm</h3>
+          </div>
+          <div class="editor-content">
+            <p class="editor-description">JetBrains 公司开发的专业 JavaScript IDE，提供智能代码补全、调试和测试工具，适合专业 Web 开发。</p>
+            <a href="https://www.jetbrains.com/webstorm/" class="editor-link" target="_blank">官方网站</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section lightweight-section">
+      <h2 class="section-title">轻量编辑器</h2>
+      <p>轻量编辑器启动快速，占用资源少，适合小型项目或单文件编辑。</p>
+      <div class="editors-grid">
+        <div class="editor-card">
+          <div class="editor-header">
+            <h3 class="editor-name">Sublime Text</h3>
+          </div>
+          <div class="editor-content">
+            <p class="editor-description">高性能、跨平台的代码编辑器，以速度快、界面简洁、功能强大而著称。</p>
+            <a href="https://www.sublimetext.com/" class="editor-link" target="_blank">官方网站</a>
+          </div>
+        </div>
+
+        <div class="editor-card">
+          <div class="editor-header">
+            <h3 class="editor-name">NotePad++</h3>
+          </div>
+          <div class="editor-content">
+            <p class="editor-description">Windows 平台下的免费开源文本编辑器，支持多种编程语言的语法高亮和代码折叠。</p>
+            <a href="https://notepad-plus-plus.org/" class="editor-link" target="_blank">官方网站</a>
+          </div>
+        </div>
+
+        <div class="editor-card">
+          <div class="editor-header">
+            <h3 class="editor-name">Vim</h3>
+          </div>
+          <div class="editor-content">
+            <p class="editor-description">高度可配置的文本编辑器，以高效的键盘操作和强大的文本编辑功能著称，有较陡峭的学习曲线。</p>
+            <a href="https://www.vim.org/" class="editor-link" target="_blank">官方网站</a>
+          </div>
+        </div>
+
+        <div class="editor-card">
+          <div class="editor-header">
+            <h3 class="editor-name">Emacs</h3>
+          </div>
+          <div class="editor-content">
+            <p class="editor-description">可扩展、自定义性极强的文本编辑器，拥有丰富的功能和插件生态系统，适合高级用户。</p>
+            <a href="https://www.gnu.org/software/emacs/" class="editor-link" target="_blank">官方网站</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>选择适合自己的编辑器，将大大提高您的编程效率和体验。</p>
+    </footer>
+  </div>
+</body>
+</html>

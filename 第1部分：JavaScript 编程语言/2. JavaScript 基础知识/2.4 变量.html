@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>变量 - JavaScript 基础知识</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+    }
+    .concept-card {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .concept-title {
+      font-size: 1.2em;
+      color: #2c3e50;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    .code-block {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 10px 0;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .note {
+      background: #e1f5fe;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #01579b;
+    }
+    .exercise-section {
+      margin-top: 30px;
+    }
+    .exercise-card {
+      background: #fff3e0;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .exercise-title {
+      color: #e65100;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .run-button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 0.9em;
+      transition: background 0.3s;
+    }
+    .run-button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>变量</h1>
+
+  <div class="concept-card">
+    <div class="concept-title">什么是变量？</div>
+    <p>变量是数据的"命名存储"。在 JavaScript 中创建一个变量，我们需要用到 let 关键字。</p>
+    <div class="note">
+      在较老的脚本中，你也可能发现另一个关键字 var，而不是 let。
+    </div>
+    <p>如果将变量想象成一个"数据"的盒子，盒子上有一个唯一的标注盒子名字的贴纸。这样我们能更轻松地掌握"变量"的概念。</p>
+    <div class="code-block">
+      let message = "Hello!";
+      // 变量 message 可以被想象成一个标有 "message" 的盒子，盒子里面的值为 "Hello!"
+    </div>
+  </div>
+
+  <div class="concept-card">
+    <div class="concept-title">变量命名规则</div>
+    <p>JavaScript 的变量命名有两个限制：</p>
+    <ul style="margin-left: 20px;">
+      <li>变量名称必须仅包含字母、数字、符号 $ 和 _</li>
+      <li>首字符必须非数字</li>
+    </ul>
+  </div>
+
+  <div class="concept-card">
+    <div class="concept-title">使用常量</div>
+    <p>声明一个常数（不变）变量，可以使用 const 而非 let。</p>
+    <div class="note">
+      一个普遍的做法是将常量用作别名，以便记住那些在执行之前就已知的难以记住的值。
+      使用大写字母和下划线来命名这些常量。
+    </div>
+    <div class="code-block">
+      const COLOR_RED = "#FF0000";
+      const MAX_WIDTH = 1000;
+    </div>
+  </div>
+
+  <div class="concept-card">
+    <div class="concept-title">变量命名最佳实践</div>
+    <p>一个变量名应该有一个清晰、明确的含义，对其存储的数据进行描述。</p>
+    <p>变量命名是编程过程中最重要的技能之一。快速地浏览变量的命名就知道代码是一个初学者还是有经验的开发者写的。</p>
+  </div>
+
+  <div class="exercise-section">
+    <div class="exercise-card">
+      <div class="exercise-title">练习 1：变量的声明与赋值</div>
+      <div class="code-block">
+        // 1. 声明两个变量：admin 和 name
+        // 2. 将值 "John" 赋给 name
+        // 3. 从 name 变量中拷贝其值给 admin
+        // 4. 使用 alert 显示 admin 的值（必须输出 "John"）
+        let admin, name;
+        name = "John";
+        admin = name;
+      </div>
+      <button class="run-button" onclick="let admin, name; name = 'John'; admin = name; alert(admin);">运行代码</button>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-title">练习 2：变量命名实践</div>
+      <p>思考如何为以下数据创建恰当的变量名：</p>
+      <div class="code-block">
+        // 1. 使用我们的星球的名字创建一个变量
+        // 2. 创建一个变量来存储当前浏览者的名字
+        let ourPlanetName = '地球';
+        let currentUserName = '张三';
+      </div>
+      <div class="note">
+        注意变量名的可读性和描述性，避免使用过于简单的名称如 planet 或 user。
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 这里可以添加其他JavaScript代码
+  </script>
+</body>
+</html>

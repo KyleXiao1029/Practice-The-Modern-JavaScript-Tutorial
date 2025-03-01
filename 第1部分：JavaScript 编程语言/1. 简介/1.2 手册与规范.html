@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手册与规范 - 现代 JavaScript 教程</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+    }
+    .navbar {
+      background-color: #2c3e50;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .navbar h1 {
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .navbar .breadcrumb {
+      color: #bdc3c7;
+      font-size: 0.9rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .content {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .intro-box {
+      background-color: #e3f2fd;
+      border-left: 4px solid #2196f3;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .resources {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .resource-card {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      border: 1px solid #e1e4e8;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .resource-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .resource-card h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 0.5rem;
+    }
+    .resource-card p {
+      margin-bottom: 1rem;
+      color: #555;
+    }
+    .resource-link {
+      display: inline-block;
+      color: #2196f3;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 0.5rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+    .resource-link:hover {
+      border-color: #2196f3;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <h1>现代 JavaScript 教程</h1>
+    <div class="breadcrumb">第1部分：JavaScript 编程语言 > 1. 简介 > 1.2 手册与规范</div>
+  </nav>
+
+  <div class="container">
+    <div class="content">
+      <div class="intro-box">
+        <p>学习 JavaScript 时，了解官方规范和参考手册是非常重要的。这些资源可以帮助你深入理解语言特性，解决编程问题，并保持与最新标准的同步。</p>
+      </div>
+
+      <div class="resources">
+        <div class="resource-card">
+          <h3>ECMA-262 规范</h3>
+          <p>ECMA-262 规范是 JavaScript 语言的官方标准，由 ECMA International 组织维护。它详细定义了 JavaScript 的语法、类型、语句、关键字、保留字、运算符和对象等内容。</p>
+          <p>这份规范是了解 JavaScript 语言最深层次细节的权威来源，适合想要深入理解语言内部工作原理的开发者。</p>
+          <a href="https://tc39.es/ecma262/" class="resource-link" target="_blank">访问 ECMA-262 规范 →</a>
+        </div>
+
+        <div class="resource-card">
+          <h3>MDN JavaScript 参考</h3>
+          <p>MDN Web 文档提供了全面的 JavaScript 参考资料，包括内置对象、表达式、语句、函数、运算符等详细说明和示例代码。</p>
+          <p>与规范相比，MDN 文档更加实用和易于理解，提供了丰富的示例和兼容性信息，是日常开发中查询 JavaScript 用法的理想资源。</p>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference" class="resource-link" target="_blank">访问 MDN JavaScript 参考 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
